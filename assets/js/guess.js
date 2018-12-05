@@ -1,46 +1,66 @@
 // store 26 letters of the alphabet
-let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
                     "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 // number of win
-let win = 0;
+var win = 0;
 
 // number of loss
-let loss = 0;
+var loss = 0;
 
 // number of tries
-let numberOfTries = 10;
+var numberOfTries = 10;
     
 // user guess stored in array
-let userGuessArray = [];
+var userGuessArray = [];
 
 // global user input variable
-let userGuessCharacter;
+var userGuessCharacter;
 
 // computer random character
-let computerRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+var computerRandomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 
 
 
-let winTarget = document.getElementById("wins");
+var winTarget = document.getElementById("wins");
 
-document.getElementById('wins').innerHTML = win;
-document.getElementById('losses').innerHTML = win;
+// document.getElementById('wins').innerHTML = win;
+// document.getElementById('losses').innerHTML = win;
+
+
 
 
 $(document).keyup(function(event) {
     userGuessCharacter = event.key;
+    console.log(userGuessCharacter);
+
+
+    userGuessArray.push(userGuessCharacter);
+    $("#guessArraySpan").text(userGuessArray, + " , ");
+    
    
     if (userGuessCharacter === computerRandomLetter) {
         win += 1;
+        $("#winsSpan").text(win);
     }
     else {
         numberOfTries -= 1;
+        $("#guessLeftSpan").text(numberOfTries);
     }
 
     if (numberOfTries == 0) {
+        loss += 1;
         alert('Game over. The computer character is ' + computerRandomLetter);
+        $("#lossesSpan").text(loss);
+        numberOfTries = 10;
+        $("#guessLeftSpan").text(numberOfTries);
+        userGuessArray = [];
+
     }
+
+    i
+
+
 
    
 
