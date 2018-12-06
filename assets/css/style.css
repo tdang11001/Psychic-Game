@@ -1,0 +1,21 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url("../images/psychic_power.jpg");
+    color: white;
+}
+p {
+    font-size: 1.5em;
+}
+
+
+h1.title {
+    font-size: 4em;
+    text-align: center;
+}
+
+p.subtitle {
+    font-size: 2em;
+    text-align: center;
+    color: gray;
+}
+
